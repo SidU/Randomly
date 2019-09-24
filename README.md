@@ -177,7 +177,37 @@ This is how we populate the entities piece of the AdaptiveCard.
     ]
   },
 ```
-The thing to note here is the `limit:1` and `offset:1` piece. So what this lets us do, is ask Fluid to spit out the mention for the first element in the `winners` array first (aka `limit 1`), and then process elements in the winners skipping past 1st element (aka `offset:1`) **putting a comma** before each of them. Bingo, synatically valid JSON!
+The thing to note here is the `limit:1` and `offset:1` piece. So what this lets us do, is ask Fluid to spit out the mention for the first element in the `winners` array first (aka `limit 1`). That gives us:
+```
+        {
+            "type": "mention",
+            ...bla bla...
+        }
+```
+And then ask Fluid to process the elements, *skipping past the first element* (aka `offset:1`) **putting a comma** before each of them.
+```
+        ,{
+            "type": "mention",
+            ...bla bla...
+        }
+```
+Bingo, synatically valid JSON!
+```
+[
+        {
+            "type": "mention",
+            ...bla bla...
+        }
+        ,{
+            "type": "mention",
+            ...bla bla...
+        }
+        ,{
+            "type": "mention",
+            ...bla bla...
+        }
+]
+```
 
 That's it!
 
