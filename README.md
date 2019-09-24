@@ -10,9 +10,16 @@ Randomly chooses one of the human roster members at random and declares them the
 ![coffee winner](coffee_winner.PNG)
 
 ## So what can you learn from it?
-There're other samples out there that cover how to build a Teams bot, how to fetch members, how to handle a user's message and respond, so I won't mention any of that. The most interesting thing about this sample is how it uses a [Fluid template](https://github.com/sebastienros/fluid) to dynamically generate a card.
+There're other samples out there that cover how to build a Teams bot, how to fetch members, how to handle a user's message and respond, so I won't mention any of that. 
+
+### The most interesting thing about this sample is how it uses a [Fluid template](https://github.com/sebastienros/fluid) to dynamically generate a card.
+
+![cool gif](https://media.giphy.com/media/1ipl6AMaBl6pcqFROR/giphy.gif)
+
+### Ready to dive in?! Buckle up!
 
 Here's what the code for reading up the AnnouncementCard and processing the template in it looks like:
+
 ```CSharp
         public static string GetAnnouncementCard(IHostingEnvironment env, AnnouncementCardModel model)
         {
