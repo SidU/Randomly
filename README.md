@@ -151,7 +151,7 @@ Note the `winner in model.Winners` piece above; that's key.
 
 Now that's great so far, but to fully get mentions to work, you need to populate the mention entities as well. This is where it gets interesting and a little tricky. That's because to generate synatically valid JSON we need to account for the commas (',').
 
-Well, Fluid supports operators and they come to our rescue.
+Well, Fluid supports operators on arrays and they come to our rescue.
 
 This is how we populate the entities piece of the AdaptiveCard.
 
@@ -177,6 +177,8 @@ This is how we populate the entities piece of the AdaptiveCard.
     ]
   },
 ```
-The thing to note here is the `limit:1` and `offset:1` pieces. So what this lets us do, is say that spit out the mention for the first element in the winners array first, and then process elements in the winners skipping past 1st element **putting a comma** before each of them. Bingo, synatically valid JSON!
+The thing to note here is the `limit:1` and `offset:1` piece. So what this lets us do, is ask Fluid to spit out the mention for the first element in the `winners` array first (aka `limit 1`), and then process elements in the winners skipping past 1st element (aka `offset:1`) **putting a comma** before each of them. Bingo, synatically valid JSON!
+
+That's it!
 
 Download the full sample and check it out!
