@@ -25,7 +25,7 @@
     "accentColor": "#FFFFFF",
     "bots": [
         {
-            "botId": "1c1e2e73-f513-40f4-9785-ed644628007f",
+            "botId": "ADD_YOUR_BOT_ID_HERE",
             "scopes": [
                 "personal",
                 "team",
