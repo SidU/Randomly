@@ -51,7 +51,7 @@ I added some comments above to explain what's happening, but the key line is the
 
 The `AnnouncementCard.fluid` is interesting as well.
 
-```json
+```
 {
   "type": "AdaptiveCard",
   "body": [
@@ -125,7 +125,7 @@ You can iterate over an array of objects in the template using:
 
 Now that's very useful for us. We use it to mention all the individuals who were chosen at random.
 
-```json
+```
  {
       "type": "Container",
       "items": [
@@ -146,7 +146,7 @@ Well, Fluid supports operators and they come to our rescue.
 
 This is how we populate the entities piece of the AdaptiveCard.
 
-```json
+```
   "msteams": {
     "entities": [
       {% for winner in model.Winners limit:1 %} {
