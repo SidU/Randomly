@@ -1,0 +1,53 @@
+﻿{
+  "type": "AdaptiveCard",
+  "body": [
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "TextBlock",
+          "size": "Medium",
+          "weight": "Bolder",
+          "text": "🎉 Congrats {% for winner in model.Winners %}<at>{{ winner.Name }}</at> {% endfor %}!"
+        }
+      ]
+    },
+    {
+      "type": "Container",
+      "items": [
+        {
+          "type": "Image",
+          "url": "{{ model.ImageUrl }}",
+          "altText": ""
+        },
+        {
+          "type": "TextBlock",
+          "text": "You are the randomly selected winner!",
+          "wrap": true
+        }
+      ]
+    }
+  ],
+  "msteams": {
+    "entities": [
+      {% for winner in model.Winners limit:1 %} {
+        "type": "mention",
+        "text": "<at>{{ winner.Name }}</at>",
+        "mentioned": {
+          "id": "{{ winner.Id }}",
+          "name": "{{ winner.Name}}"
+        }
+      } {% endfor %}
+        {% for winner in model.Winners offset:1 %} ,{
+        "type": "mention",
+        "text": "<at>{{ winner.Name }}</at>",
+        "mentioned": {
+          "id": "{{ winner.Id }}",
+          "name": "{{ winner.Name}}"
+        }
+      } {% endfor %}
+    ]
+  },
+  "$schema": "http://adaptivecards.io/schemas/adaptive-card.json",
+  "version": "1.0"
+}

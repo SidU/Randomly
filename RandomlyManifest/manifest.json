@@ -1,0 +1,53 @@
+{
+    "$schema": "https://raw.githubusercontent.com/OfficeDev/microsoft-teams-app-schema/preview/DevPreview/MicrosoftTeams.schema.json",
+    "manifestVersion": "devPreview",
+    "version": "1.0.0",
+    "id": "8cf8bfe3-96c5-4be9-a9a8-3036fe7eb4b5",
+    "packageName": "com.sample.randomly",
+    "developer": {
+        "name": "Sid Uppal",
+        "websiteUrl": "https://github.com/siduppal",
+        "privacyUrl": "https://github.com/siduppal/privacy",
+        "termsOfUseUrl": "https://github.com/siduppal/tos"
+    },
+    "icons": {
+        "color": "color.png",
+        "outline": "outline.png"
+    },
+    "name": {
+        "short": "Randomly",
+        "full": "Chooses a person at random from the team or chat"
+    },
+    "description": {
+        "short": "Choose a person at random from team or chat",
+        "full": "Chooses a person at random from the team or chat where it is added to carry out the specified task"
+    },
+    "accentColor": "#FFFFFF",
+    "bots": [
+        {
+            "botId": "1c1e2e73-f513-40f4-9785-ed644628007f",
+            "scopes": [
+                "personal",
+                "team",
+                "groupchat"
+            ],
+            "commandLists": [
+                {
+                    "scopes": [
+                        "team",
+                        "groupchat"
+                    ],
+                    "commands": [
+                    ]
+                }
+            ],
+            "supportsFiles": false,
+            "isNotificationOnly": false
+        }
+    ],
+    "permissions": [
+        "identity",
+        "messageTeamMembers"
+    ],
+    "validDomains": []
+}

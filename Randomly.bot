@@ -1,0 +1,15 @@
+﻿{
+  "name": "Randomly",
+  "services": [
+    {
+      "type": "endpoint",
+      "name": "development",
+      "endpoint": "http://localhost:3978/api/messages",
+      "appId": "ADD_YOUR_APP_ID_HERE",
+      "appPassword": "ADD_YOUR_APP_SECRET_HERE",
+      "id": "1"
+    }
+  ],
+  "padlock": "",
+  "version": "2.0"
+}
