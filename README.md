@@ -9,14 +9,14 @@ Randomly chooses one of the human roster members at random and declares them the
 
 ![coffee winner](coffee_winner.PNG)
 
-## So what can you learn from it?
+## So what can you learn from it? 
 There're other samples out there that cover how to build a Teams bot, how to fetch members, how to handle a user's message and respond, so I won't mention any of that. 
 
-### The most interesting thing about this sample is how it uses a [Fluid template](https://github.com/sebastienros/fluid) to dynamically generate a card.
+#### The most interesting thing about this sample is how it uses a [Fluid template](https://github.com/sebastienros/fluid) to dynamically generate an Adaptive Card 💪
 
 ![cool gif](https://media.giphy.com/media/1ipl6AMaBl6pcqFROR/giphy.gif)
 
-### Ready to dive in?! Buckle up!
+### Ready to dive in?! Buckle up! 🏎
 
 Here's what the code for reading up the AnnouncementCard and processing the template in it looks like:
 
@@ -116,17 +116,17 @@ The `AnnouncementCard.fluid` is interesting as well.
 
 This is where the Fluid magic is happening so let me break it down.
 
-There's code elsewhere in the bot which uses one of 5 GIFs at random. That GIF url is passed to template processing via the `ImageUrl` property of `AnnouncementCardModel` class. To have it replaced in the Fluid template, we just summon it like so
+There's code elsewhere in the bot which chooses one of 5 GIFs at random to show with the winner announcement. That GIF url is passed to template processing via the `ImageUrl` property of `AnnouncementCardModel` class. To have it replaced in the Fluid template, we just summon it like so:
 
 `{{ model.ImageUrl }}`
 
-Easy, right? Well, now it gets more interesting. Let's assume there can multiple random winners and that's useful for showing the next super interesting concept.
+Easy, right? 😎 Well, now it gets more interesting. Let's assume there can be multiple random winners and that's useful for showing the next super interesting concept, and the real power of Fluid.
 
-You can iterate over an array of objects in the template using:
+You can iterate over an array of objects in the template using `for`:
 
 ```
-{% for winner in model.Winners limit:1 %}
-....
+{% for winner in model.Winners %}
+....hey Fluid, repeat whatever's in here...
 {% endfor %}
 ```
 
@@ -145,9 +145,9 @@ Now that's very useful for us. We use it to mention all the individuals who were
       ]
     }
 ```
-Note the `winner in model.Winners` piece above.
+Note the `winner in model.Winners` piece above; that's key.
 
-Now that's great so far, but to fully get mentions to work, you need to populate the mention entities as well. This is where it gets interesting, because to generate synatically valid JSON we need to account for the commas (',').
+Now that's great so far, but to fully get mentions to work, you need to populate the mention entities as well. This is where it gets interesting and a little tricky. That's because to generate synatically valid JSON we need to account for the commas (',').
 
 Well, Fluid supports operators and they come to our rescue.
 
