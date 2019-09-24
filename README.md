@@ -114,7 +114,9 @@ The `AnnouncementCard.fluid` is interesting as well.
 }
 ```
 
-This is where the Fluid magic is happening so let me break it down.
+It's a pretty standard Adaptive Card but with some Fluid magic sprinkled in. Let's break it down!
+
+![break it down](https://media.giphy.com/media/IzRWsOco0Zp7woExht/giphy-downsized.gif)
 
 There's code elsewhere in the bot which chooses one of 5 GIFs at random to show with the winner announcement. That GIF url is passed to template processing via the `ImageUrl` property of `AnnouncementCardModel` class. To have it replaced in the Fluid template, we just summon it like so:
 
